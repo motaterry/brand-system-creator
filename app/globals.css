@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DressCode Design System - CSS Variables */
+:root {
+  /* Primary Color */
+  --primary-h: 45;
+  --primary-s: 100%;
+  --primary-l: 51.37254901960784%;
+  --color-primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --color-primary-hex: #ffc107;
+
+  /* Complementary Color */
+  --comp-h: 225;
+  --comp-s: 100%;
+  --comp-l: 51.37254901960784%;
+  --color-complementary: hsl(var(--comp-h), var(--comp-s), var(--comp-l));
+  --color-complementary-hex: #0745ff;
+
+  /* Design System Settings */
+  --border-radius: 8px;
+  --button-text-color: auto;
+
+  /* Lighter Tones (Tints) */
+  --tint-10: #ffc413;
+  --tint-20: #ffcd39;
+  --tint-30: #ffd451;
+  --tint-40: #ffda6a;
+  --tint-50: #ffe083;
+  --tint-60: #ffe69c;
+  --tint-70: #ffecb5;
+  --tint-80: #fff3cd;
+  --tint-90: #fff9e6;
+
+  /* Darker Tones (Shades) */
+  --shade-10: #f2b707;
+  --shade-20: #cc9a06;
+  --shade-30: #b38705;
+  --shade-40: #997404;
+  --shade-50: #806104;
+  --shade-60: #664d03;
+  --shade-70: #4d3a02;
+  --shade-80: #332701;
+  --shade-90: #191301;
+
+  /* Neutral Lighter */
+  --neutral-light-10: #8f8c84;
+  --neutral-light-20: #a19e97;
+  --neutral-light-30: #acaaa4;
+  --neutral-light-40: #b8b6b1;
+  --neutral-light-50: #c4c3be;
+  --neutral-light-60: #d0cfcb;
+  --neutral-light-70: #dcdbd8;
+  --neutral-light-80: #e7e7e5;
+  --neutral-light-90: #f3f3f2;
+
+  /* Neutral Darker */
+  --neutral-dark-10: #827f77;
+  --neutral-dark-20: #6e6b64;
+  --neutral-dark-30: #605e58;
+  --neutral-dark-40: #52504b;
+  --neutral-dark-50: #45433f;
+  --neutral-dark-60: #373632;
+  --neutral-dark-70: #292826;
+  --neutral-dark-80: #1b1b19;
+  --neutral-dark-90: #0e0d0c;
+
+  /* Background */
+  --bg-body: hsl(45, 100%, 98%);
+}
+
+body {
+  color: var(--neutral-dark-80);
+  background: var(--bg-body);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force light mode for inputs with primary lighter tone (98% lightness) */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+textarea {
+  color-scheme: light;
+  background-color: rgba(255, 255, 255, 1);
+  color: var(--neutral-dark-90);
+  border-color: var(--neutral-light-10);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  background-color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="url"]::placeholder,
+textarea::placeholder {
+  color: var(--neutral-dark-40);
+  opacity: 0.7;
+}
+
+/* Range Input Slider Base Styles */
+input[type="range"] {
+  border-width: 1px;
+  border-color: var(--neutral-light-10);
+  background-color: var(--neutral-light-60);
+  color: rgba(231, 231, 229, 1);
+}
+
+/* Range Input Slider Track Styles */
+input[type="range"]::-webkit-slider-runnable-track {
+  border-radius: 8px;
+}
+
+input[type="range"]::-moz-range-track {
+  border-radius: 8px;
+}
+
+/* Range Input Slider Thumb Styles */
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 1px solid var(--shade-20);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 1px solid var(--shade-20);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}

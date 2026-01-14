@@ -1,0 +1,80 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "DressCode Design System",
+  "generatedAt": "2026-01-14T19:35:05.259Z",
+  "color": {
+    "primary": {
+      "hsl": {
+        "h": 45,
+        "s": 100,
+        "l": 51.37254901960784
+      },
+      "hex": "#ffc107"
+    },
+    "complementary": {
+      "hsl": {
+        "h": 225,
+        "s": 100,
+        "l": 51.37254901960784
+      },
+      "hex": "#0745ff"
+    },
+    "tints": {
+      "10": "#ffc413",
+      "20": "#ffcd39",
+      "30": "#ffd451",
+      "40": "#ffda6a",
+      "50": "#ffe083",
+      "60": "#ffe69c",
+      "70": "#ffecb5",
+      "80": "#fff3cd",
+      "90": "#fff9e6"
+    },
+    "shades": {
+      "10": "#f2b707",
+      "20": "#cc9a06",
+      "30": "#b38705",
+      "40": "#997404",
+      "50": "#806104",
+      "60": "#664d03",
+      "70": "#4d3a02",
+      "80": "#332701",
+      "90": "#191301"
+    },
+    "neutralLighter": {
+      "10": "#8f8c84",
+      "20": "#a19e97",
+      "30": "#acaaa4",
+      "40": "#b8b6b1",
+      "50": "#c4c3be",
+      "60": "#d0cfcb",
+      "70": "#dcdbd8",
+      "80": "#e7e7e5",
+      "90": "#f3f3f2"
+    },
+    "neutralDarker": {
+      "10": "#827f77",
+      "20": "#6e6b64",
+      "30": "#605e58",
+      "40": "#52504b",
+      "50": "#45433f",
+      "60": "#373632",
+      "70": "#292826",
+      "80": "#1b1b19",
+      "90": "#0e0d0c"
+    },
+    "background": {
+      "body": {
+        "hsl": "hsl(45, 100%, 98%)",
+        "hex": "#fffdf5"
+      }
+    }
+  },
+  "spacing": {
+    "borderRadius": 8
+  },
+  "settings": {
+    "buttonTextColor": "auto",
+    "mode": "light"
+  }
+}

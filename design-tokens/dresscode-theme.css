@@ -1,0 +1,69 @@
+/* DressCode Design System Export */
+/* Generated at 2026-01-14T19:35:10.090Z */
+
+:root {
+  /* Primary Color */
+  --primary-h: 45;
+  --primary-s: 100%;
+  --primary-l: 51.37254901960784%;
+  --color-primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --color-primary-hex: #ffc107;
+
+  /* Complementary Color */
+  --comp-h: 225;
+  --comp-s: 100%;
+  --comp-l: 51.37254901960784%;
+  --color-complementary: hsl(var(--comp-h), var(--comp-s), var(--comp-l));
+  --color-complementary-hex: #0745ff;
+
+  /* Design System Settings */
+  --border-radius: 8px;
+  --button-text-color: auto;
+
+  /* Lighter Tones (Tints) */
+  --tint-10: #ffc413;
+  --tint-20: #ffcd39;
+  --tint-30: #ffd451;
+  --tint-40: #ffda6a;
+  --tint-50: #ffe083;
+  --tint-60: #ffe69c;
+  --tint-70: #ffecb5;
+  --tint-80: #fff3cd;
+  --tint-90: #fff9e6;
+
+  /* Darker Tones (Shades) */
+  --shade-10: #f2b707;
+  --shade-20: #cc9a06;
+  --shade-30: #b38705;
+  --shade-40: #997404;
+  --shade-50: #806104;
+  --shade-60: #664d03;
+  --shade-70: #4d3a02;
+  --shade-80: #332701;
+  --shade-90: #191301;
+
+  /* Neutral Lighter */
+  --neutral-light-10: #8f8c84;
+  --neutral-light-20: #a19e97;
+  --neutral-light-30: #acaaa4;
+  --neutral-light-40: #b8b6b1;
+  --neutral-light-50: #c4c3be;
+  --neutral-light-60: #d0cfcb;
+  --neutral-light-70: #dcdbd8;
+  --neutral-light-80: #e7e7e5;
+  --neutral-light-90: #f3f3f2;
+
+  /* Neutral Darker */
+  --neutral-dark-10: #827f77;
+  --neutral-dark-20: #6e6b64;
+  --neutral-dark-30: #605e58;
+  --neutral-dark-40: #52504b;
+  --neutral-dark-50: #45433f;
+  --neutral-dark-60: #373632;
+  --neutral-dark-70: #292826;
+  --neutral-dark-80: #1b1b19;
+  --neutral-dark-90: #0e0d0c;
+
+  /* Background */
+  --bg-body: hsl(45, 100%, 98%);
+}
