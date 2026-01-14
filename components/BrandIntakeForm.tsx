@@ -105,20 +105,20 @@ export default function BrandIntakeForm() {
     <div className="space-y-12">
       {/* Notification */}
       {notification && (
-        <div className="fixed top-4 right-4 bg-primary text-neutral-dark-90 px-6 py-3 rounded-lg shadow-lg z-50 font-semibold">
+        <div className="fixed top-16 right-4 bg-primary dark:bg-primary text-neutral-dark-90 dark:text-neutral-dark-90 px-6 py-3 rounded-lg shadow-lg z-50 font-semibold transition-colors duration-300">
           {notification}
         </div>
       )}
 
       {/* Presets */}
-      <div className="bg-tint-90 rounded-lg p-6" style={{ backgroundColor: '#FAF6EB' }}>
+      <div className="bg-tint-90 dark:bg-neutral-dark-70 rounded-lg p-6 transition-colors duration-300">
         <div className="flex items-center justify-between mb-4">
-          <label className="block text-sm font-semibold text-neutral-dark-90">
+          <label className="block text-sm font-semibold text-neutral-dark-90 dark:text-neutral-light-90 transition-colors duration-300">
             Quick Start Presets
           </label>
           <button
             onClick={() => setPresetsExpanded(!presetsExpanded)}
-            className="flex items-center gap-1 px-1.5 py-0.5 rounded-md text-xs text-neutral-dark-70 hover:text-neutral-dark-90 hover:bg-primary/20 transition-all"
+            className="flex items-center gap-1 px-1.5 py-0.5 rounded-md text-xs text-neutral-dark-70 dark:text-neutral-light-60 hover:text-neutral-dark-90 dark:hover:text-neutral-light-90 hover:bg-primary/20 dark:hover:bg-primary/30 transition-all"
             aria-label={presetsExpanded ? "Colapsar presets" : "Expandir presets"}
           >
             <span>{presetsExpanded ? "Ocultar" : "Mostrar"}</span>
@@ -150,21 +150,9 @@ export default function BrandIntakeForm() {
                   onClick={() => handlePresetLoad(presetName)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                     isSelected
-                      ? "bg-primary text-neutral-dark-90 border border-neutral-dark-90"
-                      : "bg-white/60 text-neutral-dark-70 border border-neutral-dark-40"
+                      ? "bg-primary text-neutral-dark-90 dark:text-neutral-dark-90 border border-neutral-dark-90 dark:border-neutral-dark-90"
+                      : "bg-white/60 dark:bg-neutral-dark-60 text-neutral-dark-70 dark:text-neutral-light-60 border border-neutral-dark-40 dark:border-neutral-dark-50 hover:bg-primary/30 dark:hover:bg-primary/20 hover:border-primary"
                   }`}
-                  onMouseEnter={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 220, 50, 0.3)'; // Primary mais brilhante
-                      e.currentTarget.style.borderColor = 'var(--color-primary-hex)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
-                      e.currentTarget.style.borderColor = 'var(--neutral-dark-40)';
-                    }
-                  }}
                 >
                   {presetName}
                 </button>
@@ -174,33 +162,16 @@ export default function BrandIntakeForm() {
         )}
         <div className={`overflow-hidden transition-all duration-300 ease-in-out ${presetsExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
           <div>
-            <p className="text-xs text-neutral-dark-50 mb-4">Clique em um preset para preencher automaticamente o formulário com valores de exemplo</p>
+            <p className="text-xs text-neutral-dark-50 dark:text-neutral-light-50 mb-4 transition-colors duration-300">Clique em um preset para preencher automaticamente o formulário com valores de exemplo</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 items-start">
           {Object.entries(EXAMPLE_PRESETS).map(([presetName, presetData]) => (
             <div
               key={presetName}
               className={`group text-left p-4 border rounded-lg transition-all h-full flex flex-col relative ${
                 selectedPreset === presetName
-                  ? "border-neutral-dark-90 bg-primary shadow-md"
-                  : "border-neutral-dark-40 hover:border-primary"
+                  ? "border-neutral-dark-90 dark:border-primary bg-primary dark:bg-primary shadow-md"
+                  : "border-neutral-dark-40 dark:border-neutral-dark-50 bg-tint-90 dark:bg-neutral-dark-70 hover:border-primary dark:hover:border-primary"
               }`}
-              style={{ 
-                backgroundColor: selectedPreset === presetName 
-                  ? '#ffc107' // Background 100% primary quando selecionado
-                  : '#FAF6EB' // Background padrão
-              }}
-              onMouseEnter={(e) => {
-                if (selectedPreset !== presetName) {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 193, 7, 0.1)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (selectedPreset !== presetName) {
-                  e.currentTarget.style.backgroundColor = '#FAF6EB';
-                } else {
-                  e.currentTarget.style.backgroundColor = '#ffc107'; // Manter selecionado com background 100% primary
-                }
-              }}
             >
               {selectedPreset === presetName && (
                 <button
@@ -208,7 +179,7 @@ export default function BrandIntakeForm() {
                     e.stopPropagation();
                     setSelectedPreset(null);
                   }}
-                  className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-neutral-light-10/20 transition-colors"
+                  className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-neutral-light-10/20 dark:hover:bg-neutral-dark-60 transition-colors"
                   aria-label="Remover preset"
                 >
                   <svg 
@@ -217,7 +188,7 @@ export default function BrandIntakeForm() {
                     viewBox="0 0 16 16" 
                     fill="none" 
                     xmlns="http://www.w3.org/2000/svg"
-                    className="text-neutral-dark-90"
+                    className="text-neutral-dark-90 dark:text-neutral-dark-90"
                   >
                     <path 
                       d="M4 4L12 12M12 4L4 12" 
@@ -232,27 +203,22 @@ export default function BrandIntakeForm() {
                 onClick={() => handlePresetLoad(presetName)}
                 className="text-left w-full h-full flex flex-col cursor-pointer pr-10"
               >
-                <div className={`font-semibold mb-2 ${selectedPreset === presetName ? 'text-neutral-dark-90' : 'text-neutral-dark-90'}`}>
+                <div className={`font-semibold mb-2 ${selectedPreset === presetName ? 'text-neutral-dark-90 dark:text-neutral-dark-90' : 'text-neutral-dark-90 dark:text-neutral-light-90'} transition-colors duration-300`}>
                   <MultiLineBadge text={presetName} isSelected={selectedPreset === presetName} />
                 </div>
-                <div className={`text-xs leading-relaxed ${selectedPreset === presetName ? 'text-neutral-dark-80' : 'text-neutral-dark-50'}`}>
+                <div className={`text-xs leading-relaxed ${selectedPreset === presetName ? 'text-neutral-dark-80 dark:text-neutral-dark-80' : 'text-neutral-dark-50 dark:text-neutral-light-50'} transition-colors duration-300`}>
                   {presetData.positioningStatement || `${presetData.industry} • ${presetData.outputPreset}`}
                 </div>
-                <div className={`mt-3 pt-3 border-t ${selectedPreset === presetName ? 'border-neutral-dark-90' : 'border-neutral-light-60'}`}>
+                <div className={`mt-3 pt-3 border-t ${selectedPreset === presetName ? 'border-neutral-dark-90 dark:border-primary' : 'border-neutral-light-60 dark:border-neutral-dark-50'} transition-colors duration-300`}>
                   <div className="flex flex-wrap gap-2">
                     {presetData.brandValues?.slice(0, 3).map((value) => (
                       <span 
                         key={value} 
                         className={`px-2 py-0.5 rounded-full text-xs transition-all font-medium border ${
                           selectedPreset === presetName
-                            ? "border-neutral-dark-90 text-neutral-dark-90"
-                            : "bg-neutral-light-80 text-neutral-dark-70 hover:bg-neutral-light-70 border-neutral-light-60"
+                            ? "border-neutral-dark-90 dark:border-primary text-neutral-dark-90 dark:text-neutral-dark-90 bg-primary dark:bg-primary"
+                            : "bg-neutral-light-80 dark:bg-neutral-dark-60 text-neutral-dark-70 dark:text-neutral-light-70 hover:bg-neutral-light-70 dark:hover:bg-neutral-dark-50 border-neutral-light-60 dark:border-neutral-dark-50"
                         }`}
-                        style={{ 
-                          backgroundColor: selectedPreset === presetName 
-                            ? '#ffc107' // Background 100% primary quando preset selecionado
-                            : 'rgba(255, 249, 230, 1)' // Background padrão
-                        }}
                       >
                         {value}
                       </span>
@@ -269,42 +235,42 @@ export default function BrandIntakeForm() {
 
       {/* Basic Info */}
       <section>
-        <h2 className="text-xl font-semibold text-neutral-dark-90 mb-6">
+        <h2 className="text-xl font-semibold text-neutral-dark-90 dark:text-neutral-light-90 mb-6 transition-colors duration-300">
           Basic Information
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-neutral-dark-70 mb-1">
-              Project Name <span className="text-shade-40">*</span>
+            <label className="block text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-1 transition-colors duration-300">
+              Project Name <span className="text-shade-40 dark:text-primary">*</span>
             </label>
             <input
               type="text"
               value={intake.projectName}
               onChange={(e) => handleInputChange("projectName", e.target.value)}
               maxLength={100}
-              className="w-full px-4 py-2 bg-white border border-neutral-dark-40 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              className="w-full px-4 py-2 bg-white dark:bg-neutral-dark-70 border border-neutral-dark-40 dark:border-neutral-dark-50 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               placeholder="my-awesome-project"
             />
-            <span className="text-xs text-neutral-dark-40">{intake.projectName.length}/100</span>
+            <span className="text-xs text-neutral-dark-40 dark:text-neutral-light-50 transition-colors duration-300">{intake.projectName.length}/100</span>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-neutral-dark-70 mb-1">
-              Brand Name <span className="text-shade-40">*</span>
+            <label className="block text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-1 transition-colors duration-300">
+              Brand Name <span className="text-shade-40 dark:text-primary">*</span>
             </label>
             <input
               type="text"
               value={intake.brandName}
               onChange={(e) => handleInputChange("brandName", e.target.value)}
               maxLength={100}
-              className="w-full px-4 py-2 bg-white border border-neutral-dark-40 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              className="w-full px-4 py-2 bg-white dark:bg-neutral-dark-70 border border-neutral-dark-40 dark:border-neutral-dark-50 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               placeholder="Acme Inc."
             />
-            <span className="text-xs text-neutral-dark-40">{intake.brandName.length}/100</span>
+            <span className="text-xs text-neutral-dark-40 dark:text-neutral-light-50 transition-colors duration-300">{intake.brandName.length}/100</span>
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-neutral-dark-70 mb-1">
+            <label className="block text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-1 transition-colors duration-300">
               Tagline
             </label>
             <input
@@ -312,20 +278,20 @@ export default function BrandIntakeForm() {
               value={intake.tagline}
               onChange={(e) => handleInputChange("tagline", e.target.value)}
               maxLength={200}
-              className="w-full px-4 py-2 bg-white border border-neutral-dark-40 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              className="w-full px-4 py-2 bg-white dark:bg-neutral-dark-70 border border-neutral-dark-40 dark:border-neutral-dark-50 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               placeholder="We make things awesome"
             />
-            <span className="text-xs text-neutral-dark-40">{intake.tagline.length}/200</span>
+            <span className="text-xs text-neutral-dark-40 dark:text-neutral-light-50 transition-colors duration-300">{intake.tagline.length}/200</span>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-neutral-dark-70 mb-1">
-              Industry <span className="text-shade-40">*</span>
+            <label className="block text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-1 transition-colors duration-300">
+              Industry <span className="text-shade-40 dark:text-primary">*</span>
             </label>
             <select
               value={intake.industry}
               onChange={(e) => handleInputChange("industry", e.target.value)}
-              className="w-full pl-4 pr-10 py-2 bg-white border border-neutral-dark-40 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              className="w-full pl-4 pr-10 py-2 bg-white dark:bg-neutral-dark-70 border border-neutral-dark-40 dark:border-neutral-dark-50 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
             >
               <option value="">Select industry...</option>
               {PRESET_OPTIONS.industries.map((ind) => (
@@ -337,14 +303,14 @@ export default function BrandIntakeForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-neutral-dark-70 mb-1">
-              Primary Use Case <span className="text-shade-40">*</span>
+            <label className="block text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-1 transition-colors duration-300">
+              Primary Use Case <span className="text-shade-40 dark:text-primary">*</span>
             </label>
             <input
               type="text"
               value={intake.primaryUseCase}
               onChange={(e) => handleInputChange("primaryUseCase", e.target.value)}
-              className="w-full px-4 py-2 bg-white border border-neutral-dark-40 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+              className="w-full px-4 py-2 bg-white dark:bg-neutral-dark-70 border border-neutral-dark-40 dark:border-neutral-dark-50 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
               placeholder="E.g., Internal dashboard, Marketing website..."
             />
           </div>
@@ -352,18 +318,11 @@ export default function BrandIntakeForm() {
       </section>
 
       {/* Output Preset */}
-      <section 
-        className="rounded-lg p-6"
-        style={{
-          backgroundColor: 'rgba(250, 246, 235, 1)',
-          backgroundImage: 'none',
-          color: 'var(--neutral-light-70)'
-        }}
-      >
-        <h2 className="text-xl font-semibold text-neutral-dark-90 mb-6">
-          Output Focus <span className="text-shade-40">*</span>
+      <section className="rounded-lg p-6 bg-tint-90 dark:bg-neutral-dark-70 transition-colors duration-300">
+        <h2 className="text-xl font-semibold text-neutral-dark-90 dark:text-neutral-light-90 mb-6 transition-colors duration-300">
+          Output Focus <span className="text-shade-40 dark:text-primary">*</span>
         </h2>
-        <p className="text-sm text-neutral-dark-60 mb-4">Selecione uma ou mais opções conforme suas necessidades</p>
+        <p className="text-sm text-neutral-dark-60 dark:text-neutral-light-60 mb-4 transition-colors duration-300">Selecione uma ou mais opções conforme suas necessidades</p>
         <div className="space-y-3">
           {PRESET_OPTIONS.outputPresets.map((preset) => {
             const isSelected = intake.outputPreset.includes(preset.value);
@@ -372,26 +331,9 @@ export default function BrandIntakeForm() {
                 key={preset.value}
                 className={`flex items-start p-4 border rounded-lg cursor-pointer transition-all ${
                   isSelected
-                    ? "border-neutral-dark-90 bg-primary shadow-md"
-                    : "border-neutral-dark-40 hover:border-primary"
+                    ? "border-neutral-dark-90 dark:border-primary bg-primary dark:bg-primary shadow-md"
+                    : "border-neutral-dark-40 dark:border-neutral-dark-50 bg-tint-90 dark:bg-neutral-dark-70 hover:border-primary dark:hover:border-primary"
                 }`}
-                style={{ 
-                  backgroundColor: isSelected 
-                    ? '#ffc107' // Background 100% primary quando selecionado
-                    : '#FAF6EB' // Background padrão
-                }}
-                onMouseEnter={(e) => {
-                  if (!isSelected) {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 193, 7, 0.1)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isSelected) {
-                    e.currentTarget.style.backgroundColor = '#FAF6EB';
-                  } else {
-                    e.currentTarget.style.backgroundColor = '#ffc107'; // Manter selecionado com background 100% primary
-                  }
-                }}
               >
                 <input
                   type="checkbox"
@@ -408,8 +350,8 @@ export default function BrandIntakeForm() {
                   className="mt-1 mr-3 accent-primary"
                 />
                 <div className="flex-1">
-                  <div className="font-semibold text-neutral-dark-90">{preset.label}</div>
-                  <div className={`text-sm mt-1 ${isSelected ? 'text-neutral-dark-80' : 'text-neutral-dark-50'}`}>{preset.description}</div>
+                  <div className="font-semibold text-neutral-dark-90 dark:text-neutral-light-90 transition-colors duration-300">{preset.label}</div>
+                  <div className={`text-sm mt-1 ${isSelected ? 'text-neutral-dark-80 dark:text-neutral-light-80' : 'text-neutral-dark-50 dark:text-neutral-light-50'} transition-colors duration-300`}>{preset.description}</div>
                 </div>
               </label>
             );
@@ -424,19 +366,19 @@ export default function BrandIntakeForm() {
               onChange={(e) => handleInputChange("requiresLogoExploration", e.target.checked)}
               className="mr-2 accent-primary"
             />
-            <span className="text-sm text-neutral-dark-70">Include logo exploration & concepts (optional)</span>
+            <span className="text-sm text-neutral-dark-70 dark:text-neutral-light-70 transition-colors duration-300">Include logo exploration & concepts (optional)</span>
           </label>
         </div>
       </section>
 
       {/* Brand Positioning */}
       <section>
-        <h2 className="text-xl font-semibold text-neutral-dark-90 mb-6">
+        <h2 className="text-xl font-semibold text-neutral-dark-90 dark:text-neutral-light-90 mb-6 transition-colors duration-300">
           Brand Positioning
         </h2>
         
         <div className="mb-8">
-          <label className="block text-sm font-medium text-neutral-dark-70 mb-2">
+          <label className="block text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-2 transition-colors duration-300">
             Positioning Statement
           </label>
           <textarea
@@ -444,10 +386,10 @@ export default function BrandIntakeForm() {
             onChange={(e) => handleInputChange("positioningStatement", e.target.value)}
             rows={3}
             maxLength={500}
-            className="w-full px-4 py-2 bg-white border border-neutral-dark-40 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+            className="w-full px-4 py-2 bg-white dark:bg-neutral-dark-70 border border-neutral-dark-40 dark:border-neutral-dark-50 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
             placeholder="For [target audience], [brand] is the [category] that [unique benefit] because [reason to believe]."
           />
-          <span className="text-xs text-neutral-dark-40">{intake.positioningStatement.length}/500</span>
+          <span className="text-xs text-neutral-dark-40 dark:text-neutral-light-50 transition-colors duration-300">{intake.positioningStatement.length}/500</span>
         </div>
 
         <div className="mb-8">
@@ -501,7 +443,7 @@ export default function BrandIntakeForm() {
 
       {/* Voice & Tone */}
       <section>
-        <h2 className="text-xl font-semibold text-neutral-dark-90 mb-6">
+        <h2 className="text-xl font-semibold text-neutral-dark-90 dark:text-neutral-light-90 mb-6 transition-colors duration-300">
           Brand Voice & Tone
         </h2>
 
@@ -515,7 +457,7 @@ export default function BrandIntakeForm() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-sm font-medium text-neutral-dark-70 mb-4">Tone Attributes</h3>
+          <h3 className="text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-4 transition-colors duration-300">Tone Attributes</h3>
           <div className="space-y-4">
             <SliderInput
               label="Formal ↔ Casual"
@@ -553,7 +495,7 @@ export default function BrandIntakeForm() {
 
       {/* Visual Direction */}
       <section>
-        <h2 className="text-xl font-semibold text-neutral-dark-90 mb-6">
+        <h2 className="text-xl font-semibold text-neutral-dark-90 dark:text-neutral-light-90 mb-6 transition-colors duration-300">
           Visual Direction
         </h2>
 
@@ -589,7 +531,7 @@ export default function BrandIntakeForm() {
 
       {/* Technical */}
       <section>
-        <h2 className="text-xl font-semibold text-neutral-dark-90 mb-6">
+        <h2 className="text-xl font-semibold text-neutral-dark-90 dark:text-neutral-light-90 mb-6 transition-colors duration-300">
           Platforms & Distribution
         </h2>
         <ChipSelect
@@ -602,30 +544,26 @@ export default function BrandIntakeForm() {
 
       {/* Additional Notes */}
       <section>
-        <h2 className="text-xl font-semibold text-neutral-dark-90 mb-6">
+        <h2 className="text-xl font-semibold text-neutral-dark-90 dark:text-neutral-light-90 mb-6 transition-colors duration-300">
           Additional Notes
         </h2>
         <textarea
           value={intake.additionalNotes}
           onChange={(e) => handleInputChange("additionalNotes", e.target.value)}
           rows={4}
-          className="w-full px-4 py-2 bg-white border border-neutral-dark-40 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+          className="w-full px-4 py-2 bg-white dark:bg-neutral-dark-70 border border-neutral-dark-40 dark:border-neutral-dark-50 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
           placeholder="Any other context, requirements, or preferences..."
         />
-        <span className="text-xs text-neutral-dark-40">{intake.additionalNotes.length} characters</span>
+          <span className="text-xs text-neutral-dark-40 dark:text-neutral-light-50 transition-colors duration-300">{intake.additionalNotes.length} characters</span>
       </section>
 
       {/* Action Buttons */}
-      <div className="sticky bottom-0 bg-bg-body border-t-4 border-primary pt-6 pb-2 -mx-8 px-8">
+      <div className="sticky bottom-0 bg-bg-body dark:bg-neutral-dark-80 border-t-4 border-primary pt-6 pb-2 -mx-8 px-8 transition-colors duration-300">
         <div className="flex gap-4">
           <button
             onClick={handleCopyTask}
             disabled={!isValid}
-            className="flex-1 px-6 py-4 border text-primary rounded-lg disabled:text-neutral-dark-30 disabled:cursor-not-allowed font-semibold text-lg transition-all flex items-center justify-center gap-2"
-            style={{ 
-              borderWidth: '1px',
-              borderColor: 'var(--neutral-light-10)'
-            }}
+            className="flex-1 px-6 py-4 border border-neutral-light-10 dark:border-neutral-dark-50 text-primary dark:text-primary rounded-lg disabled:text-neutral-dark-30 dark:disabled:text-neutral-dark-50 disabled:cursor-not-allowed font-semibold text-lg transition-all flex items-center justify-center gap-2"
           >
             <Clipboard size={20} />
             Copy Cursor Task
@@ -633,12 +571,11 @@ export default function BrandIntakeForm() {
           <button
             onClick={handleDownloadPack}
             disabled={!isValid}
-            className="flex-1 px-6 py-4 border text-neutral-dark-90 rounded-lg disabled:text-neutral-dark-30 disabled:cursor-not-allowed font-semibold text-lg transition-all flex items-center justify-center gap-2"
-            style={{ 
-              borderWidth: '1px',
-              borderColor: 'var(--neutral-light-10)',
-              backgroundColor: !isValid ? 'var(--neutral-light-60)' : 'var(--color-primary-hex)'
-            }}
+            className={`flex-1 px-6 py-4 border border-neutral-light-10 dark:border-neutral-dark-50 text-neutral-dark-90 dark:text-neutral-dark-90 rounded-lg disabled:text-neutral-dark-30 dark:disabled:text-neutral-dark-50 disabled:cursor-not-allowed font-semibold text-lg transition-all flex items-center justify-center gap-2 ${
+              !isValid 
+                ? 'bg-neutral-light-60 dark:bg-neutral-dark-60' 
+                : 'bg-primary dark:bg-primary'
+            }`}
           >
             <Download size={20} />
             Download Brand Pack
@@ -646,7 +583,7 @@ export default function BrandIntakeForm() {
         </div>
 
         {!isValid && (
-          <p className="text-sm text-shade-40 text-center mt-3 font-medium">
+          <p className="text-sm text-shade-40 dark:text-primary text-center mt-3 font-medium transition-colors duration-300">
             Please fill in all required fields (*)
           </p>
         )}
@@ -726,7 +663,7 @@ function MultiLineBadge({ text, isSelected }: { text: string; isSelected: boolea
   }, [text]);
 
   if (isSelected) {
-    return <span className="relative z-10 px-1 break-words inline-block">{text}</span>;
+    return <span className="relative z-10 px-1 break-words inline-block text-neutral-dark-90 dark:text-neutral-dark-90 transition-colors duration-300">{text}</span>;
   }
 
   return (
@@ -734,7 +671,7 @@ function MultiLineBadge({ text, isSelected }: { text: string; isSelected: boolea
       {lineRanges.map((range, index) => (
         <span
           key={index}
-          className="absolute bg-primary/50 rounded-sm transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+          className="absolute bg-primary/50 dark:bg-primary/30 rounded-sm transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
           style={{
             top: `${range.top}px`,
             left: `${range.left}px`,
@@ -776,7 +713,7 @@ function ArrayInput({
 
   return (
     <div className="mb-4">
-      <label className="block text-sm font-medium text-neutral-dark-70 mb-2">{label}</label>
+      <label className="block text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-2 transition-colors duration-300">{label}</label>
       <div className="flex gap-2 mb-2">
         <input
           type="text"
@@ -784,11 +721,11 @@ function ArrayInput({
           onChange={(e) => setValue(e.target.value)}
           onKeyPress={(e) => e.key === "Enter" && handleAdd()}
           placeholder={placeholder}
-          className="flex-1 px-4 py-2 bg-white border border-neutral-dark-40 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+          className="flex-1 px-4 py-2 bg-white dark:bg-neutral-dark-70 border border-neutral-dark-40 dark:border-neutral-dark-50 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all"
         />
         <button
           onClick={handleAdd}
-          className="px-4 py-2 bg-primary text-neutral-dark-90 rounded-lg hover:bg-primary-light font-medium transition-all"
+              className="px-4 py-2 bg-primary dark:bg-primary text-neutral-dark-90 dark:text-neutral-dark-90 rounded-lg hover:bg-primary-light dark:hover:bg-primary-light font-medium transition-all"
         >
           Add
         </button>
@@ -797,13 +734,12 @@ function ArrayInput({
         {items.map((item, index) => (
           <span
             key={index}
-            className="inline-flex items-center gap-1 px-3 py-1 bg-white border border-neutral-light-70 rounded-full text-sm text-neutral-dark-70"
-            style={{ borderColor: 'var(--neutral-dark-10)' }}
+            className="inline-flex items-center gap-1 px-3 py-1 bg-white dark:bg-neutral-dark-60 border border-neutral-light-70 dark:border-neutral-dark-50 rounded-full text-sm text-neutral-dark-70 dark:text-neutral-light-70 transition-colors duration-300"
           >
             {item}
             <button
               onClick={() => onRemove(index)}
-              className="text-neutral-dark-90 hover:text-neutral-dark-80 font-bold ml-1"
+              className="text-neutral-dark-90 dark:text-neutral-light-90 hover:text-neutral-dark-80 dark:hover:text-neutral-light-80 font-bold ml-1 transition-colors duration-300"
             >
               ×
             </button>
@@ -835,7 +771,7 @@ function ChipSelect({
 
   return (
     <div className="mb-4">
-      <label className="block text-sm font-medium text-neutral-dark-70 mb-2">{label}</label>
+      <label className="block text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 mb-2 transition-colors duration-300">{label}</label>
       <div className="flex flex-wrap gap-2">
         {options.map((option) => {
           const isSelected = selected.includes(option);
@@ -845,26 +781,9 @@ function ChipSelect({
               onClick={() => toggleOption(option)}
               className={`px-3 py-1 rounded-full text-sm transition-all font-medium ${
                 isSelected
-                  ? "bg-primary text-neutral-dark-90 shadow-md border border-neutral-dark-90"
-                  : "bg-neutral-light-80 text-neutral-dark-70 border border-neutral-light-60"
+                  ? "bg-primary dark:bg-primary text-neutral-dark-90 dark:text-neutral-dark-90 shadow-md border border-neutral-dark-90 dark:border-primary"
+                  : "bg-neutral-light-80 dark:bg-neutral-dark-60 text-neutral-dark-70 dark:text-neutral-light-70 border border-neutral-light-60 dark:border-neutral-dark-50 hover:bg-primary/30 dark:hover:bg-primary/20 hover:border-primary dark:hover:border-primary"
               }`}
-              style={
-                isSelected
-                  ? { borderColor: 'var(--shade-20)' }
-                  : { backgroundColor: 'rgba(255, 249, 230, 1)' }
-              }
-              onMouseEnter={(e) => {
-                if (!isSelected) {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 220, 50, 0.3)'; // Primary mais brilhante
-                  e.currentTarget.style.borderColor = 'var(--color-primary-hex)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isSelected) {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 249, 230, 1)';
-                  e.currentTarget.style.borderColor = 'var(--neutral-light-60)';
-                }
-              }}
             >
               {option}
             </button>
@@ -887,7 +806,7 @@ function SliderInput({
   return (
     <div>
       <div className="flex justify-between items-center mb-1">
-        <label className="text-sm font-medium text-neutral-dark-70">{label}</label>
+        <label className="text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 transition-colors duration-300">{label}</label>
         <span className="text-sm font-semibold text-primary">{value}/10</span>
       </div>
       <input
@@ -896,13 +815,7 @@ function SliderInput({
         max="10"
         value={value}
         onChange={(e) => onChange(parseInt(e.target.value))}
-        className="w-full h-2 bg-neutral-light-60 rounded-lg appearance-none cursor-pointer accent-primary"
-        style={{
-          borderWidth: '1px',
-          borderColor: 'var(--neutral-light-10)',
-          backgroundColor: 'var(--neutral-light-60)',
-          color: 'rgba(231, 231, 229, 1)',
-        }}
+        className="w-full h-2 bg-neutral-light-60 dark:bg-neutral-dark-60 border border-neutral-light-10 dark:border-neutral-dark-50 rounded-lg appearance-none cursor-pointer accent-primary transition-colors duration-300"
       />
     </div>
   );
