@@ -167,10 +167,10 @@ export default function BrandIntakeForm() {
           {Object.entries(EXAMPLE_PRESETS).map(([presetName, presetData]) => (
             <div
               key={presetName}
-              className={`group text-left p-4 border rounded-lg transition-all h-full flex flex-col relative ${
+              className={`group text-left p-4 border-2 rounded-lg transition-all h-full flex flex-col relative ${
                 selectedPreset === presetName
-                  ? "border-neutral-dark-90 dark:border-primary bg-primary dark:bg-primary shadow-md"
-                  : "border-neutral-dark-40 dark:border-neutral-dark-50 bg-tint-90 dark:bg-neutral-dark-70 hover:border-primary dark:hover:border-primary"
+                  ? "border-neutral-dark-90 dark:border-primary dark:border-2 bg-primary dark:bg-primary shadow-md"
+                  : "border border-neutral-dark-40 dark:border-neutral-dark-50 bg-tint-90 dark:bg-neutral-dark-70 hover:border-primary dark:hover:border-primary"
               }`}
             >
               {selectedPreset === presetName && (
