@@ -350,8 +350,8 @@ export default function BrandIntakeForm() {
                   className="mt-1 mr-3 accent-primary"
                 />
                 <div className="flex-1">
-                  <div className="font-semibold text-neutral-dark-90 dark:text-neutral-light-90 transition-colors duration-300">{preset.label}</div>
-                  <div className={`text-sm mt-1 ${isSelected ? 'text-neutral-dark-80 dark:text-neutral-light-80' : 'text-neutral-dark-50 dark:text-neutral-light-50'} transition-colors duration-300`}>{preset.description}</div>
+                  <div className={`font-semibold transition-colors duration-300 ${isSelected ? 'text-neutral-dark-90 dark:text-neutral-dark-90' : 'text-neutral-dark-90 dark:text-neutral-light-90'}`}>{preset.label}</div>
+                  <div className={`text-sm mt-1 transition-colors duration-300 ${isSelected ? 'text-neutral-dark-80 dark:text-neutral-dark-80' : 'text-neutral-dark-50 dark:text-neutral-light-50'}`}>{preset.description}</div>
                 </div>
               </label>
             );
