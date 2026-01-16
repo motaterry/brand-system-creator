@@ -1,6 +1,18 @@
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { BrandIntake } from "./schema";
+import {
+  generateFigmaTokens,
+  generateCSSTokens,
+  generateJSTokens,
+  generateStyleDictionary,
+  generateTokensReadme,
+} from "./content-generators/tokens";
+import { generateMidjourneyPrompts } from "./content-generators/midjourney-prompts";
+import { generateSocialTemplates } from "./content-generators/social-templates";
+import { generateLandingSections } from "./content-generators/landing-sections";
+import { generateLogoConcepts } from "./content-generators/logo-concepts";
+import { generateComponentSpecs } from "./content-generators/components";
 
 const OUTPUT_PRESET_CONFIG = {
   "saas-ui": {
@@ -400,14 +412,60 @@ export async function generateBrandPack(intake: BrandIntake): Promise<Blob> {
     ? intake.outputPreset[0]
     : (typeof intake.outputPreset === 'string' ? intake.outputPreset : 'saas-ui');
   const presetConfig = OUTPUT_PRESET_CONFIG[primaryPresetForFolders as keyof typeof OUTPUT_PRESET_CONFIG];
+  
+  // Create folders and populate with content
   presetConfig.folders.forEach(folder => {
     outputsFolder.folder(folder);
   });
 
-  if (intake.requiresLogoExploration) {
-    outputsFolder.folder("logo-concepts");
+  // Generate and add design tokens
+  if (presetConfig.folders.includes("tokens")) {
+    const tokensFolder = outputsFolder.folder("tokens")!;
+    tokensFolder.file("figma-tokens.json", generateFigmaTokens(intake));
+    tokensFolder.file("tokens.css", generateCSSTokens(intake));
+    tokensFolder.file("tokens.js", generateJSTokens(intake));
+    tokensFolder.file("style-dictionary.json", generateStyleDictionary(intake));
+    tokensFolder.file("README.md", generateTokensReadme(intake));
   }
-  
+
+  // Generate and add Midjourney prompts
+  if (presetConfig.folders.includes("midjourney-prompts")) {
+    const promptsFolder = outputsFolder.folder("midjourney-prompts")!;
+    promptsFolder.file("midjourney_prompts.md", generateMidjourneyPrompts(intake));
+  }
+
+  // Generate and add social media templates
+  if (presetConfig.folders.includes("social-templates")) {
+    const socialFolder = outputsFolder.folder("social-templates")!;
+    socialFolder.file("social_media_templates.md", generateSocialTemplates(intake));
+  }
+
+  // Generate and add landing page sections
+  if (presetConfig.folders.includes("landing-sections")) {
+    const landingFolder = outputsFolder.folder("landing-sections")!;
+    landingFolder.file("landing_page_sections.md", generateLandingSections(intake));
+  }
+
+  // Generate and add component specifications
+  if (presetConfig.folders.includes("components") || 
+      presetConfig.folders.includes("ui-templates") || 
+      presetConfig.folders.includes("mobile-components")) {
+    // Add to the first available folder
+    const componentFolderName = presetConfig.folders.find(f => 
+      f === "components" || f === "ui-templates" || f === "mobile-components"
+    );
+    if (componentFolderName) {
+      const componentsFolder = outputsFolder.folder(componentFolderName)!;
+      componentsFolder.file("component_specifications.md", generateComponentSpecs(intake));
+    }
+  }
+
+  // Generate and add logo concepts
+  if (intake.requiresLogoExploration) {
+    const logoFolder = outputsFolder.folder("logo-concepts")!;
+    logoFolder.file("logo_concepts.md", generateLogoConcepts(intake));
+  }
+
   // Add README in outputs
   outputsFolder.file(
     "README.md",
@@ -424,7 +482,7 @@ ${presetConfig.deliverables.map((d, i) => `${i + 1}. ${d}`).join('\n')}
 ${presetConfig.folders.map(f => `- \`/${f}\` - ${getFolderDescription(f)}`).join('\n')}
 ${intake.requiresLogoExploration ? '- `/logo-concepts` - Logo direction and concepts\n' : ''}
 
-Use the \`cursor_task.md\` file in the parent directory to generate these assets with Cursor AI.
+All content has been generated and is ready to use! Each folder contains comprehensive specifications and guidelines.
 
 ---
 Generated: ${new Date(intake.createdAt).toLocaleString()}

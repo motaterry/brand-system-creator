@@ -1,0 +1,67 @@
+:root {
+  /* Brand Colors */
+  --color-primary: #10B981;
+  --color-primary-light: #43ECB4;
+  --color-primary-dark: #00864E;
+  --color-secondary: #6B7280;
+  --color-secondary-light: #9EA5B3;
+  --color-secondary-dark: #383F4D;
+  --color-accent: #6B7280;
+
+  /* Neutral Colors */
+  --color-neutral-50: #F9FAFB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111827;
+
+  /* Typography Scale */
+  --font-size-xs: 0.7725rem;
+  --font-size-sm: 0.90125rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.15875rem;
+  --font-size-xl: 1.2875rem;
+  --font-size-2xl: 1.545rem;
+  --font-size-3xl: 1.9312500000000001rem;
+  --font-size-4xl: 2.3175rem;
+  --font-size-5xl: 3.09rem;
+  --font-size-6xl: 3.8625000000000003rem;
+
+  /* Spacing Scale */
+  --spacing-0: 0;
+  --spacing-1: 0.3025rem;
+  --spacing-2: 0.605rem;
+  --spacing-3: 0.9075rem;
+  --spacing-4: 1.21rem;
+  --spacing-5: 1.5125rem;
+  --spacing-6: 1.815rem;
+  --spacing-8: 2.42rem;
+  --spacing-10: 3.025rem;
+  --spacing-12: 3.63rem;
+  --spacing-16: 4.84rem;
+  --spacing-20: 6.05rem;
+  --spacing-24: 7.26rem;
+  --spacing-32: 9.68rem;
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 2.3px;
+  --radius-base: 6.8999999999999995px;
+  --radius-md: 10.35px;
+  --radius-lg: 13.799999999999999px;
+  --radius-xl: 20.7px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}

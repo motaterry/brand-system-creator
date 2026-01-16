@@ -1,0 +1,74 @@
+{
+  "tagline": "Compare clínicas, escolha com segurança.",
+  "outputPreset": [
+    "directory-seo",
+    "content-platform"
+  ],
+  "positioningStatement": "Rota do Peso é uma plataforma de descoberta e comparação que ajuda pessoas a encontrar clínicas e profissionais de controle de peso com clareza, transparência e critérios objetivos, facilitando decisões informadas em um cenário confuso e fragmentado.\n\nA marca se posiciona como curadora neutra, focada em organizar informação relevante, tornar opções comparáveis e reduzir incertezas, sem substituir orientação médica ou promover tratamentos específicos.",
+  "targetAudience": [],
+  "brandValues": [
+    "Care",
+    "Trust",
+    "Wellness",
+    "Transparency",
+    "Quality"
+  ],
+  "brandPersonality": [
+    "Caring",
+    "Trustworthy",
+    "Approachable",
+    "Authoritative"
+  ],
+  "competitorUrls": [],
+  "colorPreferences": [
+    "Green",
+    "Teal",
+    "Blue",
+    "White"
+  ],
+  "moodKeywords": [
+    "Calming",
+    "Trustworthy",
+    "Natural",
+    "Caring"
+  ],
+  "avoidKeywords": [
+    "Cold",
+    "Clinical",
+    "Intimidating"
+  ],
+  "toneAttributes": {
+    "formal": 5,
+    "playful": 3,
+    "bold": 5,
+    "minimalist": 7
+  },
+  "voiceCharacteristics": [
+    "Warm",
+    "Clear",
+    "Reassuring",
+    "Concise",
+    "Expert",
+    "Educational"
+  ],
+  "keyMessages": [
+    "Rota do Peso existe para organizar opções e critérios em um cenário confuso e fragmentado.",
+    "A plataforma não vende resultados. Ela ajuda a comparar clínicas e profissionais por informações relevantes.",
+    "Critérios visíveis, linguagem direta e ausência de exageros tornam a decisão mais consciente.",
+    "Rota do Peso orienta a escolha, mas não substitui avaliação ou acompanhamento médico.",
+    "Listagens locais facilitam encontrar opções reais, na sua cidade ou região.",
+    "Quando o paciente entende melhor o processo, o cuidado tende a ser mais alinhado desde o início."
+  ],
+  "uniqueSellingPoints": [],
+  "platforms": [
+    "Website",
+    "Social Media"
+  ],
+  "requiresLogoExploration": true,
+  "additionalNotes": "",
+  "projectName": "clinicas-catalogo",
+  "brandName": "Rota do Peso",
+  "industry": "Other",
+  "primaryUseCase": "Filtrar e comparar clínicas e profissionais de controle de peso na sua cidade para escolher com segurança.",
+  "createdAt": "2026-01-15T01:16:49.215Z"
+}

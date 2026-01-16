@@ -111,7 +111,7 @@ export default function BrandIntakeForm() {
       )}
 
       {/* Presets */}
-      <div className="bg-tint-90 dark:bg-neutral-dark-70 rounded-lg p-6 transition-colors duration-300">
+      <div className="bg-tint-90 dark:bg-neutral-dark-70 rounded-lg p-6 border border-[var(--tint-70)] transition-colors duration-300">
         <div className="flex items-center justify-between mb-4">
           <label className="block text-sm font-semibold text-neutral-dark-90 dark:text-neutral-light-90 transition-colors duration-300">
             Quick Start Presets
@@ -169,8 +169,8 @@ export default function BrandIntakeForm() {
               key={presetName}
               className={`group text-left p-4 border rounded-lg transition-all h-full flex flex-col relative ${
                 selectedPreset === presetName
-                  ? "border-neutral-dark-90 dark:border-primary bg-primary dark:bg-primary shadow-md"
-                  : "border-neutral-dark-40 dark:border-neutral-dark-50 bg-tint-90 dark:bg-neutral-dark-70 hover:border-primary dark:hover:border-primary"
+                  ? "border-[rgba(255,255,255,1)] dark:border-white bg-primary dark:bg-primary shadow-md"
+                  : "border-neutral-dark-40 dark:border-neutral-dark-50 bg-tint-90 dark:bg-neutral-dark-70 hover:bg-tint-70 dark:hover:bg-neutral-dark-70"
               }`}
             >
               {selectedPreset === presetName && (
@@ -179,7 +179,7 @@ export default function BrandIntakeForm() {
                     e.stopPropagation();
                     setSelectedPreset(null);
                   }}
-                  className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-neutral-light-10/20 dark:hover:bg-neutral-dark-60 transition-colors"
+                  className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-neutral-dark-90/20 dark:hover:bg-neutral-dark-90/20 transition-colors"
                   aria-label="Remover preset"
                 >
                   <svg 
@@ -209,15 +209,15 @@ export default function BrandIntakeForm() {
                 <div className={`text-xs leading-relaxed ${selectedPreset === presetName ? 'text-neutral-dark-80 dark:text-neutral-dark-80' : 'text-neutral-dark-50 dark:text-neutral-light-50'} transition-colors duration-300`}>
                   {presetData.positioningStatement || `${presetData.industry} • ${presetData.outputPreset}`}
                 </div>
-                <div className={`mt-3 pt-3 border-t ${selectedPreset === presetName ? 'border-neutral-dark-90 dark:border-primary' : 'border-neutral-light-60 dark:border-neutral-dark-50'} transition-colors duration-300`}>
+                <div className={`mt-3 pt-3 border-t ${selectedPreset === presetName ? 'border-neutral-dark-90 dark:border-primary' : 'border-neutral-dark-40 dark:border-neutral-dark-50'} transition-colors duration-300`}>
                   <div className="flex flex-wrap gap-2">
                     {presetData.brandValues?.slice(0, 3).map((value) => (
                       <span 
                         key={value} 
                         className={`px-2 py-0.5 rounded-full text-xs transition-all font-medium border ${
                           selectedPreset === presetName
-                            ? "border-neutral-dark-90 dark:border-primary text-neutral-dark-90 dark:text-neutral-dark-90 bg-primary dark:bg-primary"
-                            : "bg-neutral-light-80 dark:bg-neutral-dark-60 text-neutral-dark-70 dark:text-neutral-light-70 hover:bg-neutral-light-70 dark:hover:bg-neutral-dark-50 border-neutral-light-60 dark:border-neutral-dark-50"
+                            ? "border-neutral-dark-90 dark:border-neutral-dark-90 text-neutral-dark-90 dark:text-neutral-dark-90 bg-primary dark:bg-primary"
+                            : "bg-neutral-light-80 dark:bg-neutral-dark-60 text-neutral-dark-70 dark:text-neutral-light-70 border-neutral-light-60 dark:border-neutral-dark-50"
                         }`}
                       >
                         {value}
@@ -318,7 +318,7 @@ export default function BrandIntakeForm() {
       </section>
 
       {/* Output Preset */}
-      <section className="rounded-lg p-6 bg-tint-90 dark:bg-neutral-dark-70 transition-colors duration-300">
+      <section className="rounded-lg p-6 bg-tint-90 dark:bg-neutral-dark-70 border border-[var(--tint-70)] transition-colors duration-300">
         <h2 className="text-xl font-semibold text-neutral-dark-90 dark:text-neutral-light-90 mb-6 transition-colors duration-300">
           Output Focus <span className="text-shade-40 dark:text-primary">*</span>
         </h2>
@@ -331,8 +331,8 @@ export default function BrandIntakeForm() {
                 key={preset.value}
                 className={`flex items-start p-4 border rounded-lg cursor-pointer transition-all ${
                   isSelected
-                    ? "border-neutral-dark-90 dark:border-primary bg-primary dark:bg-primary shadow-md"
-                    : "border-neutral-dark-40 dark:border-neutral-dark-50 bg-tint-90 dark:bg-neutral-dark-70 hover:border-primary dark:hover:border-primary"
+                    ? "border-[rgba(255,255,255,1)] dark:border-primary bg-primary dark:bg-primary shadow-md"
+                    : "border-neutral-dark-40 dark:border-neutral-dark-50 bg-tint-90 dark:bg-neutral-dark-70 hover:bg-tint-70 dark:hover:bg-neutral-dark-70"
                 }`}
               >
                 <input
@@ -558,12 +558,12 @@ export default function BrandIntakeForm() {
       </section>
 
       {/* Action Buttons */}
-      <div className="sticky bottom-0 bg-bg-body dark:bg-neutral-dark-80 border-t-4 border-primary pt-6 pb-2 -mx-8 px-8 transition-colors duration-300">
+      <div className="sticky bottom-0 bg-bg-body dark:bg-neutral-dark-80 border-t border-neutral-dark-20 pt-6 pb-2 -mx-8 px-8 transition-colors duration-300">
         <div className="flex gap-4">
           <button
             onClick={handleCopyTask}
             disabled={!isValid}
-            className="flex-1 px-6 py-4 border border-neutral-light-10 dark:border-neutral-dark-50 text-primary dark:text-primary rounded-lg disabled:text-neutral-dark-30 dark:disabled:text-neutral-dark-50 disabled:cursor-not-allowed font-semibold text-lg transition-all flex items-center justify-center gap-2"
+            className="flex-1 px-6 py-4 border border-neutral-light-10 dark:border-neutral-dark-50 text-neutral-dark-90 dark:text-neutral-dark-90 rounded-lg disabled:text-neutral-dark-30 dark:disabled:text-neutral-dark-50 disabled:cursor-not-allowed font-semibold text-lg transition-all flex items-center justify-center gap-2"
           >
             <Clipboard size={20} />
             Copy Cursor Task
@@ -781,7 +781,7 @@ function ChipSelect({
               onClick={() => toggleOption(option)}
               className={`px-3 py-1 rounded-full text-sm transition-all font-medium ${
                 isSelected
-                  ? "bg-primary dark:bg-primary text-neutral-dark-90 dark:text-neutral-dark-90 shadow-md border border-neutral-dark-90 dark:border-primary"
+                  ? "bg-primary dark:bg-primary text-neutral-dark-90 dark:text-neutral-dark-90 shadow-md border border-[rgba(255,255,255,1)] dark:border-primary"
                   : "bg-neutral-light-80 dark:bg-neutral-dark-60 text-neutral-dark-70 dark:text-neutral-light-70 border border-neutral-light-60 dark:border-neutral-dark-50 hover:bg-primary/30 dark:hover:bg-primary/20 hover:border-primary dark:hover:border-primary"
               }`}
             >
@@ -807,7 +807,7 @@ function SliderInput({
     <div>
       <div className="flex justify-between items-center mb-1">
         <label className="text-sm font-medium text-neutral-dark-70 dark:text-neutral-light-70 transition-colors duration-300">{label}</label>
-        <span className="text-sm font-semibold text-primary">{value}/10</span>
+        <span className="text-sm font-black text-primary">{value}/10</span>
       </div>
       <input
         type="range"
